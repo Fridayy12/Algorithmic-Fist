@@ -25,15 +25,19 @@ const playGame = (userChoice) => {
 const drawGame = () => {
         console.log("DRAW")
         msg.innerText = "GAME WAS DRAW. PLAY AGAIN :)";
+        msg.style.backgroundColor = "red";
     }    
 ///////////////
-    const showWinner = (userWin) => {
+    const showWinner = (userWin,userChoice,compChoice) => {
     if(userWin){
+        userScore++;
         console.log("you win");
-        msg.innerText = "YOU WIN";
+        msg.innerText = `YOU WIN YOUR ${userChoice} beats ${compChoice}`;
+        msg.style.backgroundColor = "green";
     } else {
         console.log("you lose");
-        msg.innerText = "YOU LOSE😔"; 
+        msg.innerText = `YOU LOSE ${compChoice} beats YOUR ${userChoice}`; 
+        msg.style.backgroundColor = "BLUE";
     }
 ////////////////
 }
@@ -53,7 +57,7 @@ const drawGame = () => {
             // rock,paper
             userWin = compChoice === "rock" ? false:true;
         }
-        showWinner(userWin);
+        showWinner(userWin,userChoice,compChoice);
     }
 }
 
