@@ -17,25 +17,29 @@ const generateCompChoice = () => {
 }
 ////////////////////
 const playGame = (userChoice) => {
-    console.log("User choice =",userChoice);
     // generate comp choice
     const compChoice = generateCompChoice();
-    console.log("comp choice =",compChoice);
 /////////////////
 const drawGame = () => {
-        console.log("DRAW")
         msg.innerText = "GAME WAS DRAW. PLAY AGAIN :)";
         msg.style.backgroundColor = "red";
     }    
-///////////////
+///////////////////////
+const userScorePara = document.querySelector("#user-score");
+const compScorePara = document.querySelector("#comp-score");
+
+    ///////////////
     const showWinner = (userWin,userChoice,compChoice) => {
     if(userWin){
         userScore++;
+        userScorePara.innerText=userScore;
         console.log("you win");
         msg.innerText = `YOU WIN YOUR ${userChoice} beats ${compChoice}`;
         msg.style.backgroundColor = "green";
     } else {
-        console.log("you lose");
+        compScore++;
+        compScorePara.innerText=compScore;
+        //console.log("you lose");
         msg.innerText = `YOU LOSE ${compChoice} beats YOUR ${userChoice}`; 
         msg.style.backgroundColor = "BLUE";
     }
